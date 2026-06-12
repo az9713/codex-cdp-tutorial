@@ -36,6 +36,8 @@ That wording matters. Full CDP access is useful, but it is not just normal brows
 
 ## Browser Use vs. CDP
 
+![Browser automation layer model](assets/browser-automation-layer-model.png)
+
 Browser Use is the high-level browser automation layer. It lets Codex operate a browser like a user or tester:
 
 - Open a page.
@@ -60,6 +62,10 @@ The simplest distinction:
 
 - Browser Use answers: what is happening on the page?
 - CDP answers: what is happening inside the browser while the page runs?
+
+For a broader stack comparison, see:
+
+[cdp_vs_playwright_puppeteer_claude_chrome.md](cdp_vs_playwright_puppeteer_claude_chrome.md)
 
 ## Does Browser Use Automatically Invoke Full CDP?
 
@@ -154,7 +160,9 @@ This repository contains the source video notes, screenshots, explanatory docume
 Committed artifacts:
 
 - `README.md`: this source-and-journey overview.
+- `assets/browser-automation-layer-model.png`: infographic explaining the browser automation stack.
 - `browser_use_cdp_explainer_and_showcase_plan.md`: detailed explanation and showcase plan.
+- `cdp_vs_playwright_puppeteer_claude_chrome.md`: comparison of CDP, Playwright, Puppeteer, Claude in Chrome, and Codex Browser Use.
 - `cdp_vs_browser_use_demo/`: runnable local showcase app and walkthroughs.
 
 Raw text notes and transcript files are intentionally excluded from git with `*.txt`.
@@ -163,4 +171,4 @@ Raw text notes and transcript files are intentionally excluded from git with `*.
 
 Status: showcase implemented.
 
-Next step: run the local demo and, if desired, commit and push the new showcase files.
+Next step: run the local demo and inspect the CDP probe output.

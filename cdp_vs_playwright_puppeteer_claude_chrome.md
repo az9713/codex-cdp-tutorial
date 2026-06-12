@@ -4,6 +4,10 @@ This document explains how Chrome DevTools Protocol (CDP) differs from Playwrigh
 
 It assumes no prior CDP experience.
 
+## Infographic
+
+![Browser automation layer model](assets/browser-automation-layer-model.png)
+
 ## Short Answer
 
 CDP is not the same kind of thing as Playwright, Puppeteer, or Claude in Chrome.
