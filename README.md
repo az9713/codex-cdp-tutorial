@@ -25,11 +25,7 @@ The core example is a chat application that slows down as the conversation list 
 
 ## The Codex Setting
 
-The relevant setting appears in the Codex app under Browser settings:
-
-![Codex Browser settings showing full CDP access enabled](turning_on_CDP_codex.jpg)
-
-The setting reads:
+The relevant setting appears in the Codex app under Browser settings. The setting reads:
 
 > Developer mode  
 > Elevated risk  
@@ -112,13 +108,17 @@ The current deeper explanation and implementation plan are captured in:
 
 [browser_use_cdp_explainer_and_showcase_plan.md](browser_use_cdp_explainer_and_showcase_plan.md)
 
-## Planned Showcase
+## Implemented Showcase
 
-The planned showcase is a small local demo app that will make the Browser Use vs. CDP distinction concrete.
+The showcase is now implemented as a small local demo app that makes the Browser Use vs. CDP distinction concrete.
 
-The demo app should behave like a simplified slow chat application. Ordinary Browser Use should be able to reproduce the user-visible symptoms, while CDP should reveal the root causes.
+Start here:
 
-Planned symptoms:
+[cdp_vs_browser_use_demo/README.md](cdp_vs_browser_use_demo/README.md)
+
+The demo app behaves like a simplified slow chat application. Ordinary Browser Use can reproduce the user-visible symptoms, while CDP reveals the root causes.
+
+Included symptoms:
 
 - A conversation list that becomes slow as it grows.
 - Delayed typing caused by unnecessary JavaScript work.
@@ -139,21 +139,28 @@ Planned comparison:
 | Styling bug | Can see the visual problem | Can inspect computed CSS and matched rules |
 | Hidden runtime issue | May not notice it | Can read console errors and stack traces |
 
+The demo includes:
+
+- A local Node server.
+- A plain HTML/CSS/JS app.
+- A CDP probe script.
+- Beginner-friendly walkthroughs for ordinary Browser Use and CDP.
+- A comparison matrix and security notes.
+
 ## Repository Scope
 
-This repository currently contains documentation and screenshots only. The demo app has not been implemented yet.
+This repository contains the source video notes, screenshots, explanatory documentation, and a runnable local showcase.
 
 Committed artifacts:
 
 - `README.md`: this source-and-journey overview.
 - `browser_use_cdp_explainer_and_showcase_plan.md`: detailed explanation and showcase plan.
-- `turning_on_CDP_codex.jpg`: screenshot of the full CDP access setting.
-- `developer_mode_CDP_codex.jpg`: supporting screenshot from the Codex Browser settings.
+- `cdp_vs_browser_use_demo/`: runnable local showcase app and walkthroughs.
 
 Raw text notes and transcript files are intentionally excluded from git with `*.txt`.
 
 ## Current Status
 
-Status: documentation phase complete.
+Status: showcase implemented.
 
-Next step: implement the local `cdp_vs_browser_use_demo` app and add a CDP probe walkthrough that collects console, network, storage, style, and performance evidence.
+Next step: run the local demo and, if desired, commit and push the new showcase files.

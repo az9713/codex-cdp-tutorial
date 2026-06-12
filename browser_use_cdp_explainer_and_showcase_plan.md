@@ -2,7 +2,7 @@
 
 This document explains the Codex Browser Use feature, Chrome DevTools Protocol (CDP), why full CDP access is labeled as elevated risk, and how a future showcase can demonstrate the difference between ordinary Browser Use and CDP-backed debugging.
 
-The local source material for this document is `transcript.txt`, which summarizes a Codex demo about using CDP through Browser Use to debug a slow chat application. The screenshot `turning_on_CDP_codex.jpg` shows the relevant Codex setting:
+The local source material for this document is `transcript.txt`, which summarizes a Codex demo about using CDP through Browser Use to debug a slow chat application. The relevant Codex Browser setting is:
 
 > Developer mode  
 > Elevated risk  

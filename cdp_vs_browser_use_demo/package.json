@@ -1,0 +1,14 @@
+{
+  "name": "cdp-vs-browser-use-demo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Local demo showing what Chrome DevTools Protocol can reveal beyond ordinary Browser Use.",
+  "scripts": {
+    "start": "node server.js",
+    "probe": "node cdp_probe.js",
+    "probe:port": "node cdp_probe.js --port 9222 --url http://localhost:4173"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

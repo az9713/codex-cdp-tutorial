@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CDP vs Browser Use Demo</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="app-header">
+      <div>
+        <p class="eyebrow">Local tutorial lab</p>
+        <h1>CDP vs Browser Use Demo</h1>
+        <p class="lede">A deliberately flawed chat app that shows the difference between visible UI testing and DevTools-level browser inspection.</p>
+      </div>
+      <div class="status-card" aria-live="polite">
+        <span class="status-label">Visible app status</span>
+        <strong id="visibleStatus">Waiting for interaction</strong>
+      </div>
+    </header>
+
+    <main class="layout">
+      <aside class="panel conversations-panel">
+        <div class="panel-header">
+          <div>
+            <p class="eyebrow">Browser Use can see this</p>
+            <h2>Conversations</h2>
+          </div>
+          <button id="refreshBtn" type="button">Reload</button>
+        </div>
+        <div class="metric-strip">
+          <span><strong id="conversationCount">0</strong> loaded</span>
+          <span><strong id="renderCost">0</strong> ms render</span>
+        </div>
+        <div id="conversationList" class="conversation-list" aria-label="Conversation list"></div>
+      </aside>
+
+      <section class="panel chat-panel">
+        <div class="panel-header">
+          <div>
+            <p class="eyebrow">Symptoms are visible</p>
+            <h2 id="chatTitle">Select a conversation</h2>
+          </div>
+          <button id="styleTrapBtn" type="button">Apply style trap</button>
+        </div>
+
+        <div id="messageList" class="message-list" aria-live="polite">
+          <p class="empty-state">Open the app, select a conversation, then compare what ordinary Browser Use can observe with what CDP can inspect.</p>
+        </div>
+
+        <form id="messageForm" class="composer">
+          <label for="messageInput">Message draft</label>
+          <textarea id="messageInput" rows="3" placeholder="Type here to trigger the slow input path"></textarea>
+          <div class="composer-actions">
+            <span id="inputLagReadout">Input handler has not run yet.</span>
+            <button id="sendButton" type="submit">Send fake message</button>
+          </div>
+        </form>
+      </section>
+
+      <section class="panel evidence-panel">
+        <div class="panel-header">
+          <div>
+            <p class="eyebrow">CDP reveals this</p>
+            <h2>Hidden Evidence</h2>
+          </div>
+          <button id="failureBtn" type="button">Trigger failed API</button>
+        </div>
+
+        <div class="evidence-grid">
+          <article>
+            <h3>Console</h3>
+            <p>The app logs a warning and an unhandled rejection. Ordinary Browser Use may not notice them.</p>
+          </article>
+          <article>
+            <h3>Network</h3>
+            <p>Selecting a conversation intentionally makes duplicate message requests. CDP can show the 429 response.</p>
+          </article>
+          <article>
+            <h3>Storage</h3>
+            <p>The page stores fake demo state in local storage and session storage so CDP can inspect it.</p>
+          </article>
+          <article>
+            <h3>Styles</h3>
+            <p>The style trap makes the send button look disabled through CSS. CDP can inspect the computed style.</p>
+          </article>
+        </div>
+
+        <div class="log-panel">
+          <h3>Visible event log</h3>
+          <ol id="visibleLog"></ol>
+        </div>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
